@@ -128,7 +128,7 @@ class Mage_Postfinance_Model_Api extends Mage_Payment_Model_Method_Abstract
      */
     public function getOrderPlaceRedirectUrl()
     {
-		  Mage::log(Mage::getUrl('postfinance/api/placeform', array('_secure' => true)));
+                  Mage::log(Mage::getUrl('postfinance/api/placeform', array('_secure' => true)));
           return Mage::getUrl('postfinance/api/placeform', array('_secure' => true));
     }
 
@@ -159,7 +159,7 @@ class Mage_Postfinance_Model_Api extends Mage_Payment_Model_Method_Abstract
         $formFields = array();
         $formFields['PSPID']    = $this->getConfig()->getPSPID();
         $formFields['orderID']  = $order->getIncrementId();
-        $formFields['amount']   = round($order->getBaseGrandTotal()*100);
+        $formFields['amount']   = round($order->getGrandTotal()*100);
         $formFields['currency'] = Mage::app()->getStore()->getBaseCurrencyCode();
         $formFields['language'] = Mage::app()->getLocale()->getLocaleCode();
 
